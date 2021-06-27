@@ -3,7 +3,7 @@ FROM centos
 # Set Proxy
 # ENV http_proxy http://192.168.100.100:3128/
 
-RUN apt-get update && apt-get install gcc zlib1g-dev libreadline6-dev apt-utils make jq curl -y
+RUN yum update && yum install gcc zlib1g-dev libreadline6-dev yum-utils make jq curl -y
 
 RUN mkdir -p /tmp/downloads
 
@@ -39,31 +39,31 @@ USER root
 WORKDIR /
 
 # Install OpenJDK-8
-RUN apt-get update && \
-    apt-get install -y openjdk-8-jdk && \
-    apt-get install -y ant && \
-    apt-get clean;
+RUN yum update && \
+    yum install -y openjdk-8-jdk && \
+    yum install -y ant && \
+    yum clean;
 
 # Setup JAVA_HOME
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
-RUN export JAVA_HOME
+#ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
+#RUN export JAVA_HOME
 
 # Install needed dependencies 
-RUN apt-get update && \
-    apt-get install -y git && \
-    apt-get install -y vim && \
-    apt-get install -y wget && \
-    apt-get install -y python3-pip && \
-    apt-get install -y mercurial && \
-    apt-get install -y zip && \
-    apt-get install lsof && \
-    apt-get clean && \
+RUN yum update && \
+    yum install -y git && \
+    yum install -y vim && \
+    yum install -y wget && \
+    yum install -y python3-pip && \
+    yum install -y mercurial && \
+    yum install -y zip && \
+    yum install lsof && \
+    yum clean && \
     echo "alias python3.3='/usr/bin/python3'" >> /root/.bashrc;
     
 # Install newman
-RUN apt-get install aptitude -y && \
-    aptitude install npm -y && \
-    npm install newman -g;
+#RUN apt-get install aptitude -y && \
+#    aptitude install npm -y && \
+#    npm install newman -g;
     
 # ENV http_proxy=
 
