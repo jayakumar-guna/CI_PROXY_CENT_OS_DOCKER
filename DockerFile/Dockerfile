@@ -45,3 +45,26 @@ RUN /usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data
 USER root
 
 WORKDIR /
+
+RUN yum -y update &&\
+    yum install -y java-1.8.0-openjdk &&\
+    yum install -y ant &&\
+    yum clean all
+    
+# Setup JAVA_HOME
+ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk/
+RUN export JAVA_HOME
+
+# Install needed dependencies 
+RUN apt-get -y update &&\
+    yum install -y git &&\
+    yum install -y vim &&\
+    yum install -y python3-pip &&\
+    yum install -y mercurial &&\
+    yum install -y zip &&\
+    yum install -y xorg-x11-server-Xvfb &&\
+    yum install -y lsof &&\
+    yum clean all
+    
+ENV DISPLAY :1
+RUN export DISPLAY
