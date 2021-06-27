@@ -25,7 +25,7 @@ RUN cd /tmp/downloads/postgresql-9.4.0 &&\
     make &&\
     su &&\
     make install &&\
-    adduser postgres --gecos '' --disabled-login &&\
+    adduser postgres --password '' -s /bin/false &&\
     mkdir /usr/local/pgsql/data &&\
     chown postgres /usr/local/pgsql/data
 
