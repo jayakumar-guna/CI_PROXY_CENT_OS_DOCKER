@@ -56,7 +56,7 @@ ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk/
 RUN export JAVA_HOME
 
 # Install needed dependencies 
-RUN apt-get -y update &&\
+RUN yum -y update &&\
     yum install -y git &&\
     yum install -y vim &&\
     yum install -y python3-pip &&\
