@@ -1,4 +1,4 @@
-FROM centos
+FROM centos:7.6.1810
 
 RUN yum update -y && \
     yum install -y gcc && \
