@@ -1,4 +1,4 @@
-FROM centos:7.6.1810
+FROM centos:7.4.1708
 
 RUN yum update -y && \
     yum install -y gcc && \
@@ -62,6 +62,7 @@ RUN yum -y update &&\
     yum install -y python3-pip &&\
     yum install -y mercurial &&\
     yum install -y zip &&\
+    yum install -y unzip &&\
     yum install -y xorg-x11-server-Xvfb &&\
     yum install -y lsof &&\
     yum clean all
