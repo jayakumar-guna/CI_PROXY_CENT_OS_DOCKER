@@ -3,11 +3,11 @@ FROM centos:7.6.1810
 RUN yum update -y && \
     yum install -y gcc && \
     yum install -y zlib-devel && \
-    #yum install -y yum-utils && \
     yum install -y make && \
-    #yum install -y jq && \
-    #yum install -y curl && \
     yum install -y wget && \
+    yum install -y zip &&\
+    yum install -y unzip &&\
+    yum install -y lsof &&\
     wget http://mirror.centos.org/centos/7/os/x86_64/Packages/readline-devel-6.2-11.el7.x86_64.rpm && \
     yum install -y readline-devel && \
     rm -rf readline-devel-6.2-11.el7.x86_64.rpm && \
@@ -55,16 +55,19 @@ RUN yum -y update &&\
 ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk/
 RUN export JAVA_HOME
 
+# to set default char set as utf-8
+ENV LANG en_US.utf8
+RUN export LANG
+
 # Install needed dependencies 
 RUN yum -y update &&\
     yum install -y git &&\
     yum install -y vim &&\
     yum install -y python3-pip &&\
     yum install -y mercurial &&\
-    yum install -y zip &&\
-    yum install -y unzip &&\
     yum install -y xorg-x11-server-Xvfb &&\
-    yum install -y lsof &&\
+    yum install -y enchant &&\
+    yum install -y gtk3-devel &&\
     yum clean all
     
 ENV DISPLAY :1
