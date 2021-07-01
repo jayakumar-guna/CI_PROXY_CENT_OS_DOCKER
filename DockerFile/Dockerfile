@@ -1,16 +1,18 @@
-FROM centos:7.4.1708
+FROM centos:7.6.1810
 
-RUN yum update -y && \
-    yum install -y gcc && \
-    yum install -y zlib-devel && \
-    yum install -y make && \
-    yum install -y wget && \
+RUN yum update -y &&\
+    yum install -y gcc &&\
+    yum install -y zlib-devel &&\
+    yum install -y make &&\
+    yum install -y wget &&\
     yum install -y zip &&\
     yum install -y unzip &&\
     yum install -y lsof &&\
-    wget http://mirror.centos.org/centos/7/os/x86_64/Packages/readline-devel-6.2-11.el7.x86_64.rpm && \
-    yum install -y readline-devel && \
-    rm -rf readline-devel-6.2-11.el7.x86_64.rpm && \
+    yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm  &&\
+    yum install -y jq &&\
+    wget http://mirror.centos.org/centos/7/os/x86_64/Packages/readline-devel-6.2-11.el7.x86_64.rpm &&\
+    yum install -y readline-devel &&\
+    rm -rf readline-devel-6.2-11.el7.x86_64.rpm &&\
     yum clean all
     
 RUN mkdir -p /tmp/downloads
