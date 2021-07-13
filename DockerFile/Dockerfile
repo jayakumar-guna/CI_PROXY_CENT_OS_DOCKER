@@ -82,6 +82,4 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
     conda install -y python=3 &&\
     conda update -y conda &&\
     conda clean --all --yes 
-# dvc-stratus inatallation  
-RUN pip install http://integ-fileupload.csez.zohocorpin.com/dvc_stratus/raman.r/dvc_stratus-0.1.3-py3-none-any.whl
    
