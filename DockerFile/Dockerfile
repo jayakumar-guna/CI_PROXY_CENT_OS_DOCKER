@@ -79,7 +79,7 @@ RUN export DISPLAY
 RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o /tmp/miniconda.sh &&\
     bash /tmp/miniconda.sh -bfp /usr/local/ &&\
     rm -rf /tmp/miniconda.sh &&\
-    conda install -y python=3 &&\
+    conda install -y python=3.7.5 &&\
     conda update -y conda &&\
     conda clean --all --yes 
    
